@@ -132,3 +132,29 @@ weather-frontend/
 - `postcss.config.js` - PostCSS configuration
 - `jest.config.js` - Jest configuration
 - `tsconfig.jest.json` - TypeScript configuration for Jest
+
+## 🔮 Future Improvements
+
+Here are some planned improvements for the application:
+
+1. **Temperature Unit Conversion**
+   - Add support for different temperature units (Kelvin, Celsius, Fahrenheit)
+   - Allow multiple units by passing the desired unit as a query parameter (e.g., `?unit=metric` for Celsius, `?unit=imperial` for Fahrenheit)
+   - Add a unit toggle switch in the UI for easy conversion
+
+2. **Enhanced Weather Details**
+   - Add more detailed weather information like UV index, air quality, and precipitation probability
+   - Include hourly and daily weather forecasts
+   - Show weather alerts and warnings when available
+
+3. **User Experience**
+   - Implement dark/light theme toggle
+   - Add favorite locations feature with local storage
+   - Include weather maps and radar visualization
+   - Add weather-based activity suggestions
+
+4. **Performance & Accessibility**
+   - Implement lazy loading for better initial load time
+   - Add keyboard navigation support
+   - Improve screen reader compatibility
+   - Add offline support with service workers
