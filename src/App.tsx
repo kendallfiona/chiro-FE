@@ -10,6 +10,12 @@ const App = () => {
       <div>
         <Routes>
           <Route 
+            path="/weather" 
+            element={
+              <WeatherLookup />
+            } 
+          />
+          <Route 
             path="/" 
             element={<Navigate to="/weather" replace />} 
           />
