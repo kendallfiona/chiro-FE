@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import WeatherLookup from '../WeatherLookup';
 import * as useWeatherLookupModule from '../../../hooks/useWeatherLookup';
 
@@ -44,7 +44,7 @@ describe('WeatherLookup', () => {
     });
     render(<WeatherLookup />);
     // Check for the loading container div
-    expect(screen.getByText((content, element) => {
+    expect(screen.getByText((_, element) => {
       return element?.tagName.toLowerCase() === 'div' && 
              element?.className.includes('flex justify-center mt-4');
     })).toBeInTheDocument();
@@ -62,7 +62,21 @@ describe('WeatherLookup', () => {
   it('shows weather display when weather exists', () => {
     jest.spyOn(useWeatherLookupModule, 'useWeatherLookup').mockReturnValue({
       ...baseHookState,
-      weather: { name: 'Paris', sys: { country: 'FR' }, main: { temp: 20, feels_like: 19, temp_min: 15, temp_max: 22, pressure: 1012, humidity: 60 }, weather: [{ id: 800, main: 'Clear', description: 'clear sky', icon: '01d' }], wind: { speed: 3.6, deg: 180 }, coord: { lon: 2.3522, lat: 48.8566 }, visibility: 10000, clouds: { all: 0 }, dt: 0, base: '', sys: { country: 'FR', sunrise: 0, sunset: 0 }, timezone: 0, id: 0, cod: 0 },
+      weather: {
+        name: 'Paris',
+        sys: { country: 'FR', sunrise: 0, sunset: 0 },
+        main: { temp: 20, feels_like: 19, temp_min: 15, temp_max: 22, pressure: 1012, humidity: 60 },
+        weather: [{ id: 800, main: 'Clear', description: 'clear sky', icon: '01d' }],
+        wind: { speed: 3.6, deg: 180 },
+        coord: { lon: 2.3522, lat: 48.8566 },
+        visibility: 10000,
+        clouds: { all: 0 },
+        dt: 0,
+        base: '',
+        timezone: 0,
+        id: 0,
+        cod: 0
+      },
     });
     render(<WeatherLookup />);
     expect(screen.getByText('Paris')).toBeInTheDocument();
