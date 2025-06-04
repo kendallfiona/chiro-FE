@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { BACKEND_URL } from '../../config';
 
 interface LoginPageProps {
   onLoginSuccess: () => void;
@@ -18,7 +19,7 @@ const LoginPage = ({ onLoginSuccess }: LoginPageProps) => {
     setError('');
 
     try {
-      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000'}/auth/login`, {
+      const response = await axios.post(`${BACKEND_URL}/auth/login`, {
         username,
         password,
       });

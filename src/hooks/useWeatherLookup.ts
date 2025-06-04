@@ -161,10 +161,9 @@ export const useWeatherLookup = () => {
           } else {
             setError("Failed to fetch weather.");
           }
-        } else if (e instanceof Error) {
-          setError(`Failed to fetch weather: ${e.message}`);
-        } else {
-          setError("Failed to fetch weather.");
+        } 
+        else {
+          setError("Failed to fetch weather, invalid city.");
         }
       } finally {
         setLoading(false);
